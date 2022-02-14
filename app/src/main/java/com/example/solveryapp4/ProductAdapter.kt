@@ -10,6 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 class ProductAdapter(private val products: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        fun setData(product: Product) {//заполнить этот метод
+
+        }
+
         val largeTextView: TextView = itemView.findViewById(R.id.textViewLarge)
         val smallTextView: TextView = itemView.findViewById(R.id.textViewSmall)
     }
@@ -21,10 +26,11 @@ class ProductAdapter(private val products: List<Product>) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-      val product = products[position]
-      holder.setData(product)//определить его
+        val product = products[position]
+        holder.setData(product)
     }
 
     override fun getItemCount(): Int = products.size
+
 
 }
