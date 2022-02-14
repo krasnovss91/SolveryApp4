@@ -32,5 +32,4 @@ class ProductAdapter(private val products: List<Product>) :
 
     override fun getItemCount(): Int = products.size
 
-
 }
