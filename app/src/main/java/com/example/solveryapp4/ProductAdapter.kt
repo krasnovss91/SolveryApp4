@@ -20,9 +20,7 @@ class ProductAdapter(private val products: List<Product>): RecyclerView.Adapter<
         TODO("Not yet implemented")
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = products.size
 
 }
 /*
@@ -39,6 +37,4 @@ class ProductAdapter(private val products: List<Product>): RecyclerView.Adapter<
         holder.smallTextView.text = "кот"
     }
 
-    override fun getItemCount() = names.size
-}
  */
