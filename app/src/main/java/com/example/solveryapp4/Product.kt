@@ -1,4 +1,5 @@
 package com.example.solveryapp4
 
-data class Product(val name: String, val producer: String, val cost: Int)
-//Название, производитель, стоимость, картинка товара
+import androidx.annotation.DrawableRes
+
+data class Product(@DrawableRes val avatar: Int, val name: String, val producer: String, val cost: Int)
