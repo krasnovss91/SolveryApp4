@@ -3,7 +3,9 @@ package com.example.solveryapp4
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -11,12 +13,17 @@ class ProductAdapter(private val products: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun setData(product: Product) {//заполнить этот метод
+        fun setData(product: Product) {
+            itemView.findViewById<TextView>(R.id.name).text = product.name
+            itemView.findViewById<TextView>(R.id.producer).text = product.producer
+            itemView.findViewById<TextView>(R.id.cost).text = product.cost.toString()
 
+            val drawable = ContextCompat.getDrawable(itemView.context, product.avatar)
+            itemView.findViewById<ImageView>(R.id.avatar).setImageDrawable(drawable)
         }
 
-        val largeTextView: TextView = itemView.findViewById(R.id.textViewLarge)
-        val smallTextView: TextView = itemView.findViewById(R.id.textViewSmall)
+        //val largeTextView: TextView = itemView.findViewById(R.id.textViewLarge)
+       // val smallTextView: TextView = itemView.findViewById(R.id.textViewSmall)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
