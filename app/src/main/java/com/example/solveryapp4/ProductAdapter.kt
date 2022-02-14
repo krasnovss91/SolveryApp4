@@ -21,18 +21,10 @@ class ProductAdapter(private val products: List<Product>) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+      val product = products[position]
+      holder.setData//определить его
     }
 
     override fun getItemCount(): Int = products.size
 
 }
-/*
-
-
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.largeTextView.text = names[position]
-        holder.smallTextView.text = "кот"
-    }
-
- */
