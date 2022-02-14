@@ -22,7 +22,7 @@ class ProductAdapter(private val products: List<Product>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
       val product = products[position]
-      holder.setData//определить его
+      holder.setData(product)//определить его
     }
 
     override fun getItemCount(): Int = products.size
