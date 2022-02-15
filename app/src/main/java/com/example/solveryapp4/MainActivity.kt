@@ -15,8 +15,10 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ProductAdapter()//сюда список товаров
+        recyclerView.adapter = ProductAdapter(productList())
 
 
     }
+
+    private fun productList():List<Product> = listOf()//сюда несколько экземпляров товаров
 }
