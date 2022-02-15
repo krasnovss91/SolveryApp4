@@ -19,10 +19,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun productList():List<Product> = listOf(
-        Product(R.drawable.ic_launcher_background,"Картофель","",18),
-        Product(R.drawable.ic_launcher_background,"Чай","",9),
-        Product(R.drawable.ic_launcher_background,"Яйца","",22),
-        Product(R.drawable.ic_launcher_background,"Молоко","",20),
-        Product(R.drawable.ic_launcher_background,"Макароны","",15)
+        Product(R.drawable.ic_launcher_background,"Картофель","ООО Интегра",18),
+        Product(R.drawable.ic_launcher_foreground,"Чай","ИП Абрамян А.Г.",9),
+        Product(R.drawable.ic_launcher_background,"Яйца","с.Зелёное",22),
+        Product(R.drawable.ic_launcher_foreground,"Молоко","с.Зелёное",20),
+        Product(R.drawable.ic_launcher_background,"Макароны","Тольяттинский хлебозавод",15)
     )
 }

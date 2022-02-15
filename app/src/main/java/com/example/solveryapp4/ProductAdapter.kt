@@ -14,6 +14,7 @@ class ProductAdapter(private val products: List<Product>) :
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun setData(product: Product) {
+            //на строке ниже Attempt to invoke virtual method 'void android.widget.TextView.setText(java.lang.CharSequence)' on a null object reference
             itemView.findViewById<TextView>(R.id.name).text = product.name
             itemView.findViewById<TextView>(R.id.producer).text = product.producer
             itemView.findViewById<TextView>(R.id.cost).text = product.cost.toString()
@@ -22,8 +23,7 @@ class ProductAdapter(private val products: List<Product>) :
             itemView.findViewById<ImageView>(R.id.avatar).setImageDrawable(drawable)
         }
 
-        //val largeTextView: TextView = itemView.findViewById(R.id.textViewLarge)
-       // val smallTextView: TextView = itemView.findViewById(R.id.textViewSmall)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
