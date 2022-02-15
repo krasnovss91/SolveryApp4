@@ -23,7 +23,7 @@ class ProductAdapter(private val products: List<Product>) :
             itemView.findViewById<ImageView>(R.id.avatar).setImageDrawable(drawable)
         }
 
-
+//дернуть после установки списка у адаптера метод notifyDataSetChanged
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

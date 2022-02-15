@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ProductAdapter(productList())
+        //вызвать notifyDataSetChanged
+        recyclerView.adapter.notifyDataSetChanged()
 
     }
 
