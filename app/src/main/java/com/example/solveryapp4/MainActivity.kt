@@ -12,13 +12,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ProductAdapter(productList())
 
-
     }
 
-    private fun productList():List<Product> = listOf()//сюда несколько экземпляров товаров
+    private fun productList():List<Product> = listOf(
+        Product(R.drawable.ic_launcher_background,"Картофель","",18),
+        Product(R.drawable.ic_launcher_background,"Чай","",9),
+        Product(R.drawable.ic_launcher_background,"Яйца","",22),
+        Product(R.drawable.ic_launcher_background,"Молоко","",20),
+        Product(R.drawable.ic_launcher_background,"Макароны","",15)
+    )
 }
