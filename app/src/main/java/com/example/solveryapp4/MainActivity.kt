@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ProductAdapter(productList())
 
-        //поправить, чтобы отображались все элементы (зависимость в gradle добавил)
         //добавить возможность редактирования, добавления и удаления товара
     }
 
