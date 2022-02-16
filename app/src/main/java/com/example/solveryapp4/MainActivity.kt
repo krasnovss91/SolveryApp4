@@ -2,6 +2,7 @@ package com.example.solveryapp4
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -15,6 +16,10 @@ class MainActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ProductAdapter(productList())
+
+
+        val buttonDelete = findViewById<Button>(R.id.buttonDelete)
+        val buttonAdd = findViewById<Button>(R.id.buttonAdd)
 
         //добавить возможность редактирования, добавления и удаления товара
         //кнопки удалить и добавить, для редактирования вызывать новую activity
