@@ -2,6 +2,7 @@ package com.example.solveryapp4
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,9 +22,20 @@ class MainActivity : AppCompatActivity() {
         val buttonDelete = findViewById<Button>(R.id.buttonDelete)
         val buttonAdd = findViewById<Button>(R.id.buttonAdd)
 
-        //добавить возможность редактирования, добавления и удаления товара
         //кнопки удалить и добавить, для редактирования вызывать новую activity
         //https://metanit.com/java/android/5.12.php
+
+        buttonDelete.setOnClickListener(object : View.OnClickListener {//описать удаление элемента
+            override fun onClick(p0: View?) {
+
+            }
+        })
+
+        buttonAdd.setOnClickListener(object : View.OnClickListener{//описать добавление нового элемента в список
+            override fun onClick(p0: View?) {
+
+            }
+        })
     }
 
     private fun productList():List<Product> = listOf(
