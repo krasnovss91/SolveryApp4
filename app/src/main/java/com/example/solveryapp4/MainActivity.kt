@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ProductAdapter(productList())
 
-        //поправить вёрстку productItem, чтобы список корректно отображался
+        //поправить, чтобы отображались все элементы
     }
 
     private fun productList():List<Product> = listOf(
