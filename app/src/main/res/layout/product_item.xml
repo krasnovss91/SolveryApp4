@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<!--сюда изображение и текстовые поля - наименование, производитель, стоимость -->
+
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="wrap_content"
