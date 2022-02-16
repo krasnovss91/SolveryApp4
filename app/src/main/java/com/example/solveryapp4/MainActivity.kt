@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = ProductAdapter(productList())
 
         //добавить возможность редактирования, добавления и удаления товара
+        //кнопки удалить и добавить, для редактирования вызывать новую activity
+        //https://metanit.com/java/android/5.12.php
     }
 
     private fun productList():List<Product> = listOf(

@@ -3,5 +3,7 @@
     <string name="name">name</string>
     <string name="producer">producer</string>
     <string name="cost">cost</string>
+    <string name="buttonDelete">-</string>
+    <string name="buttonAdd">+</string>
 
 </resources>
