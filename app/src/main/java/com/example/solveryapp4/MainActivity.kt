@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ProductAdapter(productList())
 
-
     }
 
     private fun productList():List<Product> = listOf(
