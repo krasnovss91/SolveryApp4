@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnProductSelected {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,23 +20,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = ProductAdapter(productList())
 
 
-        val buttonDelete = findViewById<Button>(R.id.buttonDelete)
-        val buttonAdd = findViewById<Button>(R.id.buttonAdd)
-
-        //кнопки удалить и добавить, для редактирования вызывать новую activity
-
-
-        buttonDelete.setOnClickListener(object : View.OnClickListener {//описать удаление элемента
-            override fun onClick(p0: View?) {
-
-            }
-        })
-
-        buttonAdd.setOnClickListener(object : View.OnClickListener{//описать добавление нового элемента в список
-            override fun onClick(p0: View?) {
-
-            }
-        })
     }
 
     private fun productList():List<Product> = listOf(
@@ -45,4 +29,8 @@ class MainActivity : AppCompatActivity() {
         Product(R.drawable.ic_launcher_foreground,"Молоко","с.Зелёное",20),
         Product(R.drawable.ic_launcher_background,"Макароны","Тольяттинский хлебозавод",15)
     )
+
+    override fun onSelect(product: Product) {
+        Toast.makeText(this, product.toString(),Toast.LENGTH_SHORT).show()
+    }
 }

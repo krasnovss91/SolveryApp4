@@ -5,5 +5,6 @@
     <string name="cost">cost</string>
     <string name="buttonDelete">-</string>
     <string name="buttonAdd">+</string>
+    <string name="addProduct">Добавить товар</string>
 
 </resources>
