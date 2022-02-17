@@ -1,5 +1,6 @@
 package com.example.solveryapp4
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,11 +20,13 @@ class ProductActivity : AppCompatActivity() {
         val product = Product(R.drawable.ic_launcher_background, name.text.toString(), producer.text.toString(), cost.text.toString().toInt())
 
         val saveProduct = findViewById<Button>(R.id.saveProduct)
-
-        //здесь собрать экземпляр product и кинуть в MainActivity
+        val intent = Intent()
 
         saveProduct.setOnClickListener(object: View.OnClickListener{
             override fun onClick(p0: View?) {
+                intent.putExtra(PRODUCT,product)
+                setResult(RESULT_OK, intent)
+                finish()
 
             }
         })
