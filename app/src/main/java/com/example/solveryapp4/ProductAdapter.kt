@@ -8,10 +8,13 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
+interface OnProductSelected{
+    fun onSelect(product: Product)
+}
 
-class ProductAdapter(private val products: List<Product>) :
+class ProductAdapter(private val products: List<Product>, private val listener: OnProductSelected) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+   inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun setData(product: Product) {
             itemView.findViewById<TextView>(R.id.name).text = product.name
@@ -20,6 +23,10 @@ class ProductAdapter(private val products: List<Product>) :
 
             val drawable = ContextCompat.getDrawable(itemView.context, product.avatar)
             itemView.findViewById<ImageView>(R.id.avatar).setImageDrawable(drawable)
+
+            itemView.setOnClickListener {
+                listener.onSelect(product)
+            }
         }
 
     }
