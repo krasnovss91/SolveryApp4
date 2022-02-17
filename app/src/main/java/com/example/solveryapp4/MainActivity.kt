@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+const val PRODUCT = "KEY_PRODUCT"
+
 class MainActivity : AppCompatActivity(), OnProductSelected {
 
 
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         Product(R.drawable.ic_launcher_background,"Макароны","Тольяттинский хлебозавод",15)
     )
 
-    override fun onSelect(product: Product) {
+    override fun onSelect(product: Product) {//убедиться что работает и использовать activity для редактирования
         Toast.makeText(this, product.toString(),Toast.LENGTH_SHORT).show()
     }
 }
