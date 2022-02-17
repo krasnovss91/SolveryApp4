@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val buttonAdd = findViewById<Button>(R.id.buttonAdd)
 
         //кнопки удалить и добавить, для редактирования вызывать новую activity
-        //https://metanit.com/java/android/5.12.php
+
 
         buttonDelete.setOnClickListener(object : View.OnClickListener {//описать удаление элемента
             override fun onClick(p0: View?) {
