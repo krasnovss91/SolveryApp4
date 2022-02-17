@@ -15,8 +15,8 @@ class ProductActivity : AppCompatActivity() {
         var producer = findViewById(R.id.producerEdit) as EditText
         var cost = findViewById(R.id.costEdit) as EditText
 
-        //Integer.parseInt(cost.text.toString())
-        val product = Product(R.drawable.ic_launcher_background, name.text.toString(), producer.text.toString(), cost.text.toString())
+
+        val product = Product(R.drawable.ic_launcher_background, name.text.toString(), producer.text.toString(), cost.text.toString().toInt())
 
         val saveProduct = findViewById<Button>(R.id.saveProduct)
 
