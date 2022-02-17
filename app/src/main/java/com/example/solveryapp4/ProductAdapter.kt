@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 interface OnProductSelected{
     fun onSelect(product: Product)
 }
-
-class ProductAdapter(private val products: List<Product>, private val listener: OnProductSelected) :
+//, private val listener: OnProductSelected- добавить в конструктор
+class ProductAdapter(private val products: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -25,7 +25,7 @@ class ProductAdapter(private val products: List<Product>, private val listener: 
             itemView.findViewById<ImageView>(R.id.avatar).setImageDrawable(drawable)
 
             itemView.setOnClickListener {
-                listener.onSelect(product)
+             //   listener.onSelect(product)
             }
         }
 
