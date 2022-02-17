@@ -1,5 +1,6 @@
 package com.example.solveryapp4
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         recyclerView.adapter = ProductAdapter(productList())
 
         val addButton = findViewById<Button>(R.id.addProduct)
+
+        val saveIntent = Intent(this, ProductActivity::class.java)
 
         addButton.setOnClickListener(object: View.OnClickListener{//вызывать activity для добавления
             override fun onClick(p0: View?) {
