@@ -1,5 +1,8 @@
 package com.example.solveryapp4
 
+import android.os.Parcelable
 import androidx.annotation.DrawableRes
+import kotlinx.android.parcel.Parcelize
 
-data class Product(@DrawableRes val avatar: Int, val name: String, val producer: String, val cost: Int)
+@Parcelize
+data class Product(@DrawableRes val avatar: Int, val name: String, val producer: String, val cost: Int):Parcelable
