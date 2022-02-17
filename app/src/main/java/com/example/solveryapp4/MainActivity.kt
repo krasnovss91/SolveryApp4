@@ -19,6 +19,14 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ProductAdapter(productList())
 
+        val addButton = findViewById<Button>(R.id.addProduct)
+
+        addButton.setOnClickListener(object: View.OnClickListener{//вызывать activity для добавления
+            override fun onClick(p0: View?) {
+
+            }
+        })
+
     }
 
     private fun productList():List<Product> = listOf(
