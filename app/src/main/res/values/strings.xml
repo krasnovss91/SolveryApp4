@@ -15,5 +15,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="saveProduct">Сохранить</string>
+    <string name="nameEdit">наименование</string>
+    <string name="producerEdit">производитель</string>
+    <string name="costEdit">стоимость</string>
 
 </resources>
