@@ -27,9 +27,10 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         val saveIntent = Intent(this, ProductActivity::class.java)
 
-        addButton.setOnClickListener(object: View.OnClickListener{
+        addButton.setOnClickListener(object: View.OnClickListener{//достать результат из другой activity и добавить в список
             override fun onClick(p0: View?) {
-                startActivity(saveIntent)
+              //  startActivity(saveIntent)
+            startActivityForResult(saveIntent, 1)
             }
         })
 
