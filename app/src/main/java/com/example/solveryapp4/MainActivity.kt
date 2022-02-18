@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.solveryapp4.databinding.ActivityMainBinding
 
 const val PRODUCT = "KEY_PRODUCT"
 
@@ -20,10 +21,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ProductAdapter(this)
-      //  recyclerView.adapter = ProductAdapter(productList())
-
-
+        recyclerView.adapter = ProductAdapter(productList(), this)
 
         val addButton = findViewById<Button>(R.id.addProduct)
 

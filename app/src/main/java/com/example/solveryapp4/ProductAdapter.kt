@@ -11,15 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 interface OnProductSelected{
     fun onSelect(product: Product)
 }
-// в предыдущей версии список передавался через конструктор
-class ProductAdapter( private val listener: OnProductSelected) :
-    RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
-    private var products: List<Product> = emptyList()
 
-    fun setData(products: List<Product>){
-        this.products = products
-        notifyDataSetChanged()
-    }
+class ProductAdapter(private val products: List<Product>, private val listener: OnProductSelected) :
+    RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
