@@ -19,9 +19,10 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val productList = productList()
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ProductAdapter(productList(), this)
+        recyclerView.adapter = ProductAdapter(productList, this)
 
         val addButton = findViewById<Button>(R.id.addProduct)
 
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
             override fun onClick(p0: View?) {
                 //  startActivity(saveIntent)
                 startActivityForResult(saveIntent, 1)// сложить результат в список товаров
+
             }
         })
 

@@ -16,6 +16,7 @@ class EditActivity : AppCompatActivity() {//здесь редактирован�
     val cost = findViewById<EditText>(R.id.costEdit1)
 
     val editButton = findViewById<Button>(R.id.saveProduct1)
+    val product = intent.getParcelableExtra<Product>(PRODUCT)//разложить по EditText для редактирования
 
     editButton.setOnClickListener(object : View.OnClickListener{//вернуть отредактированный экземпляр в главную activity
         override fun onClick(p0: View?) {
