@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         Product(R.drawable.ic_launcher_background,"Макароны","Тольяттинский хлебозавод",15)
     )
 
-    override fun onSelect(product: Product) {//убедиться что работает и использовать activity для редактирования
+    override fun onSelect(product: Product) {//убедиться что работает и здес вызывать activity c выбором удалить/редактировать.
         Toast.makeText(this, product.toString(),Toast.LENGTH_SHORT).show()
     }
 }

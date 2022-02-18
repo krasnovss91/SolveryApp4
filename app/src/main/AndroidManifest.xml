@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolveryApp4">
         <activity
+            android:name=".EditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChangeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProductActivity"
             android:exported="false"
             android:label="@string/title_activity_product"
