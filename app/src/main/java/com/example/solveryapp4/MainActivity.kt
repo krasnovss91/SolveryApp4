@@ -27,28 +27,26 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         val saveIntent = Intent(this, ProductActivity::class.java)
 
-
-
-        addButton.setOnClickListener(object: View.OnClickListener{//достать результат из другой activity и добавить в список
+        addButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-              //  startActivity(saveIntent)
-            startActivityForResult(saveIntent, 1)
+                //  startActivity(saveIntent)
+                startActivityForResult(saveIntent, 1)// сложить результат в список товаров
             }
         })
 
     }
 
-    private fun productList():List<Product> = listOf(
-        Product(R.drawable.ic_launcher_background,"Картофель","ООО Интегра",18),
-        Product(R.drawable.ic_launcher_foreground,"Чай","ИП Абрамян А.Г.",9),
-        Product(R.drawable.ic_launcher_background,"Яйца","с.Зелёное",22),
-        Product(R.drawable.ic_launcher_foreground,"Молоко","с.Зелёное",20),
-        Product(R.drawable.ic_launcher_background,"Макароны","Тольяттинский хлебозавод",15)
+    private fun productList(): List<Product> = listOf(
+        Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18),
+        Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9),
+        Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22),
+        Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20),
+        Product(R.drawable.ic_launcher_background, "Макароны", "Тольяттинский хлебозавод", 15)
     )
 
     override fun onSelect(product: Product) {//здесь вызвать changeActivity
-        val changeIntent = Intent(this,ChangeActivity::class.java)
-        changeIntent.putExtra(PRODUCT,product)
+        val changeIntent = Intent(this, ChangeActivity::class.java)
+        changeIntent.putExtra(PRODUCT, product)
         startActivity(changeIntent)
 
     }
