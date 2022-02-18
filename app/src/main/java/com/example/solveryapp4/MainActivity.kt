@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         val saveIntent = Intent(this, ProductActivity::class.java)
 
-        val changeIntent = Intent(this,ChangeActivity::class.java)
+
 
         addButton.setOnClickListener(object: View.OnClickListener{//достать результат из другой activity и добавить в список
             override fun onClick(p0: View?) {
@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
     )
 
     override fun onSelect(product: Product) {//здесь вызвать changeActivity
-        Toast.makeText(this, product.toString(),Toast.LENGTH_SHORT).show()
+        val changeIntent = Intent(this,ChangeActivity::class.java)
+        startActivity(changeIntent)
+        //Toast.makeText(this, product.toString(),Toast.LENGTH_SHORT).show()
     }
 }
