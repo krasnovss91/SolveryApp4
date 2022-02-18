@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
     override fun onSelect(product: Product) {//здесь вызвать changeActivity
         val changeIntent = Intent(this,ChangeActivity::class.java)
+        intent.putExtra(PRODUCT,product)
         startActivity(changeIntent)
-        //Toast.makeText(this, product.toString(),Toast.LENGTH_SHORT).show()
+
     }
 }
