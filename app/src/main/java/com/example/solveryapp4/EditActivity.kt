@@ -2,6 +2,8 @@ package com.example.solveryapp4
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.EditText
 
 class EditActivity : AppCompatActivity() {//здесь редактирование элемента списка
@@ -13,6 +15,13 @@ class EditActivity : AppCompatActivity() {//здесь редактирован�
     val producer = findViewById<EditText>(R.id.producerEdit1)
     val cost = findViewById<EditText>(R.id.costEdit1)
 
+    val editButton = findViewById<Button>(R.id.saveProduct1)
+
+    editButton.setOnClickListener(object : View.OnClickListener{//вернуть отредактированный экземпляр в главную activity
+        override fun onClick(p0: View?) {
+
+        }
+    })
 
     }
 }

@@ -14,6 +14,8 @@ class ChangeActivity : AppCompatActivity() {
         val deleteButton = findViewById<Button>(R.id.deleteButton)
         val editButton = findViewById<Button>(R.id.editButton)
 
+        //поймать экземпляр product и передать дальше
+
         deleteButton.setOnClickListener(object : View.OnClickListener {//удалить
             override fun onClick(p0: View?) {
 
