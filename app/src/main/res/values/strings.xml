@@ -21,5 +21,9 @@
     <string name="costEdit">стоимость</string>
     <string name="delete">Удалить</string>
     <string name="edit">Редактировать</string>
+    <string name="nameEdit1">наименование</string>
+    <string name="producerEdit1">производитель</string>
+    <string name="costEdit1">стоимость</string>
+    <string name="saveProduct1">сохранить изменения</string>
 
 </resources>
