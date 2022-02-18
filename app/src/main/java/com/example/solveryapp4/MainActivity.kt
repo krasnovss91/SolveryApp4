@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
     override fun onSelect(product: Product) {//здесь вызвать changeActivity
         val changeIntent = Intent(this,ChangeActivity::class.java)
-        intent.putExtra(PRODUCT,product)
+        changeIntent.putExtra(PRODUCT,product)
         startActivity(changeIntent)
 
     }
