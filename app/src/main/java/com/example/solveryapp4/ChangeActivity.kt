@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Button
 
 class ChangeActivity : AppCompatActivity() {
-    //сюда 2 кнопки, что сделать с текущим элементом
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change)
@@ -27,8 +27,8 @@ class ChangeActivity : AppCompatActivity() {
 
         editButton.setOnClickListener(object : View.OnClickListener{//редактировать
             override fun onClick(p0: View?) {
-
-
+                editIntent.putExtra(PRODUCT,product)
+                startActivity(editIntent)
             }
         })
     }
