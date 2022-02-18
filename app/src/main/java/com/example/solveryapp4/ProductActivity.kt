@@ -12,9 +12,9 @@ class ProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product2)
 
-        var name = findViewById(R.id.nameEdit) as EditText
-        var producer = findViewById(R.id.producerEdit) as EditText
-        var cost = findViewById(R.id.costEdit) as EditText
+        val name = findViewById(R.id.nameEdit) as EditText
+        val producer = findViewById(R.id.producerEdit) as EditText
+        val cost = findViewById(R.id.costEdit) as EditText
 
 
         val product = Product(R.drawable.ic_launcher_background, name.text.toString(), producer.text.toString(), cost.text.toString().toInt())
