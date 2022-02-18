@@ -11,9 +11,16 @@ import androidx.recyclerview.widget.RecyclerView
 interface OnProductSelected{
     fun onSelect(product: Product)
 }
-//, private val listener: OnProductSelected- добавить в конструктор
-class ProductAdapter(private val products: List<Product>) :
+// в предыдущей версии список передавался через конструктор
+class ProductAdapter( private val listener: OnProductSelected) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
+    private var products: List<Product> = emptyList()
+
+    fun setData(products: List<Product>){
+        this.products = products
+        notifyDataSetChanged()
+    }
+
    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun setData(product: Product) {
@@ -25,7 +32,7 @@ class ProductAdapter(private val products: List<Product>) :
             itemView.findViewById<ImageView>(R.id.avatar).setImageDrawable(drawable)
 
             itemView.setOnClickListener {
-             //   listener.onSelect(product)
+                listener.onSelect(product)
             }
         }
 

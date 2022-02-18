@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ProductAdapter(productList())
+      //  recyclerView.adapter = ProductAdapter(productList())
 
         val addButton = findViewById<Button>(R.id.addProduct)
 
