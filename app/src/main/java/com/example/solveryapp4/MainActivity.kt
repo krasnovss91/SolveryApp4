@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         val saveIntent = Intent(this, ProductActivity::class.java)
 
+        val changeIntent = Intent(this,ChangeActivity::class.java)
+
         addButton.setOnClickListener(object: View.OnClickListener{//достать результат из другой activity и добавить в список
             override fun onClick(p0: View?) {
               //  startActivity(saveIntent)
@@ -44,7 +46,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         Product(R.drawable.ic_launcher_background,"Макароны","Тольяттинский хлебозавод",15)
     )
 
-    override fun onSelect(product: Product) {//убедиться что работает и здес вызывать activity c выбором удалить/редактировать.
+    override fun onSelect(product: Product) {//здесь вызвать changeActivity
         Toast.makeText(this, product.toString(),Toast.LENGTH_SHORT).show()
     }
 }
