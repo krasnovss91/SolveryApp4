@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
             override fun onClick(p0: View?) {
                 startActivityForResult(saveIntent, 1)// сложить результат в список товаров через Request-код
 
-                val arguments = saveIntent.extras
+                //val arguments = saveIntent.extras
+                val arguments = intent.extras
                 val data = arguments?.get(PRODUCT)
                 productList.add(data as Product)//NPE
                 //val result = setResult(1)
@@ -62,5 +63,9 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         changeIntent.putExtra(PRODUCT, product)
         startActivity(changeIntent)
 
+    }
+
+    fun delete(product: Product, productList: MutableList<Product>){//вызывать при нажатии на кнопку удаления
+        productList.remove(product)
     }
 }
