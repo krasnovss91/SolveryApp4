@@ -37,15 +37,21 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         addButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-                //  startActivity(saveIntent)
                 startActivityForResult(saveIntent, 1)// сложить результат в список товаров через Request-код
 
+                //val result = setResult(1)
+              //  productList.add(result)
+               //https://startandroid.ru/en/lessons/520-making-activity-return-result-with-startactivityforresult-method.html
+                //переопределить метод onActivityResult
             }
         })
 
     }
 
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+    }
     override fun onSelect(product: Product) {//здесь вызвать changeActivity
         val changeIntent = Intent(this, ChangeActivity::class.java)
         changeIntent.putExtra(PRODUCT, product)
