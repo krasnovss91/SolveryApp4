@@ -39,6 +39,9 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
             override fun onClick(p0: View?) {
                 startActivityForResult(saveIntent, 1)// сложить результат в список товаров через Request-код
 
+                val arguments = saveIntent.extras
+                val data = arguments?.get(PRODUCT)
+                productList.add(data as Product)//NPE
                 //val result = setResult(1)
               //  productList.add(result)
                //https://startandroid.ru/en/lessons/520-making-activity-return-result-with-startactivityforresult-method.html
@@ -48,10 +51,12 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
     }
 
-
+/*
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
     }
+
+ */
     override fun onSelect(product: Product) {//здесь вызвать changeActivity
         val changeIntent = Intent(this, ChangeActivity::class.java)
         changeIntent.putExtra(PRODUCT, product)
