@@ -16,14 +16,12 @@ class ProductActivity : AppCompatActivity() {
         val producer = findViewById(R.id.producerEdit) as EditText
         val cost = findViewById(R.id.costEdit) as EditText
 
-//java.lang.NumberFormatException: For input string: "стоимость"
-        val product = Product(R.drawable.ic_launcher_background, name.text.toString(), producer.text.toString(), cost.text.toString().toInt())
-
         val saveProduct = findViewById<Button>(R.id.saveProduct)
         val intent = Intent()
 
         saveProduct.setOnClickListener(object: View.OnClickListener{
             override fun onClick(p0: View?) {
+                val product = Product(R.drawable.ic_launcher_background, name.text.toString(), producer.text.toString(), cost.text.toString().toInt())
                 intent.putExtra(PRODUCT,product)
                 setResult(RESULT_OK, intent)
                 finish()

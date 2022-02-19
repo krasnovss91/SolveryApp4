@@ -11,7 +11,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/nameEdit" />
+        android:hint="@string/nameEdit" />
 
     <EditText
         android:id="@+id/producerEdit"
@@ -20,7 +20,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/producerEdit" />
+        android:hint="@string/producerEdit" />
 
 
     <EditText
@@ -30,7 +30,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/costEdit" />
+        android:hint="@string/costEdit" />
 
 
     <Button
