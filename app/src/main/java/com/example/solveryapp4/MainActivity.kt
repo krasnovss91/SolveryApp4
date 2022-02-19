@@ -19,7 +19,14 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val productList = productList()
+        val productList = mutableListOf(
+            Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18),
+            Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9),
+            Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22),
+            Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20),
+            Product(R.drawable.ic_launcher_background, "Макароны", "Тольяттинский хлебозавод", 15)
+        )
+
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ProductAdapter(productList, this)
@@ -38,13 +45,6 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
     }
 
-    private fun productList(): List<Product> = listOf(
-        Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18),
-        Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9),
-        Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22),
-        Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20),
-        Product(R.drawable.ic_launcher_background, "Макароны", "Тольяттинский хлебозавод", 15)
-    )
 
     override fun onSelect(product: Product) {//здесь вызвать changeActivity
         val changeIntent = Intent(this, ChangeActivity::class.java)
