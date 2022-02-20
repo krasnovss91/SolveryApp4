@@ -54,6 +54,8 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
             }
         })
+
+
     }
 
 /*
