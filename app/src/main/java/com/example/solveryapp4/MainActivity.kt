@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
             }
         })
 
-        deleteButton.setOnClickListener(object : View.OnClickListener{//здесь вызвать метод delete
+        deleteButton.setOnClickListener(object : View.OnClickListener{//валится с NPE, если закомментировать, приложение собирается
             override fun onClick(p0: View?) {
 
             }
