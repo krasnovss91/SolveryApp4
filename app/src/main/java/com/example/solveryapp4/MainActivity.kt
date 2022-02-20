@@ -45,13 +45,15 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
                 val arguments = intent.extras
                 val data = arguments?.get(PRODUCT)
                 productList.add(data as Product)//NPE
-                //val result = setResult(1)
-              //  productList.add(result)
-               //https://startandroid.ru/en/lessons/520-making-activity-return-result-with-startactivityforresult-method.html
-                //переопределить метод onActivityResult
+
             }
         })
 
+        deleteButton.setOnClickListener(object : View.OnClickListener{//здесь вызвать метод delete
+            override fun onClick(p0: View?) {
+
+            }
+        })
     }
 
 /*
@@ -66,6 +68,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         startActivity(editIntent)
 
     }
+
 
     fun delete(product: Product, productList: MutableList<Product>){//вызывать при нажатии на кнопку удаления
         productList.remove(product)
