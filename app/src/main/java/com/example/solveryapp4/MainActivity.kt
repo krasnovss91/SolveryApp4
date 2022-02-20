@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         val addButton = findViewById<Button>(R.id.addProduct)
 
+        val deleteButton = findViewById<Button>(R.id.deleteItemButton)
+
         val saveIntent = Intent(this, ProductActivity::class.java)
 
         addButton.setOnClickListener(object : View.OnClickListener {
