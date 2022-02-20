@@ -25,5 +25,6 @@
     <string name="producerEdit1">производитель</string>
     <string name="costEdit1">стоимость</string>
     <string name="saveProduct1">сохранить изменения</string>
+    <string name="delete_item">Удалить</string>
 
 </resources>

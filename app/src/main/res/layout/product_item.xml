@@ -47,5 +47,14 @@
         tools:layout_editor_absoluteY="114dp"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_item"
+        tools:layout_editor_absoluteX="291dp"
+        tools:layout_editor_absoluteY="61dp"
+        tools:ignore="MissingConstraints" />
+    <!--сюда кнопку удалить -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
