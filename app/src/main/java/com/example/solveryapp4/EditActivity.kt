@@ -28,11 +28,13 @@ class EditActivity : AppCompatActivity() {
 
         val image = product?.avatar
 
+        val intent = Intent(this, MainActivity::class.java)
         editButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                val result = image?.let { Product(it,name.text.toString(),producer.text.toString(),cost.text.toString().toInt()) }
-                val intent = Intent()
+
                 intent.putExtra(PRODUCT,result)
+                startActivityForResult(intent, 1)
                 finish()
             }
         })

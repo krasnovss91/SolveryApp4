@@ -44,10 +44,9 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
                 startActivity(saveIntent)
                 //val arguments = saveIntent.extras
                 val arguments = intent.extras
-                val data = arguments?.getParcelable<Product>(PRODUCT)
-                if (data != null) {
-                    productList.add(data)
-                }
+              //  val data = arguments?.getParcelable<Product>(PRODUCT)
+                val data = onActivityResult(1,1,saveIntent)
+                productList.add(data as Product)
                // val data = arguments?.get(PRODUCT)
                // productList.add(data as Product)//NPE. Доставать результат через onActivityResult
 
