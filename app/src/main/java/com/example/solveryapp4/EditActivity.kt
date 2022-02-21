@@ -1,5 +1,6 @@
 package com.example.solveryapp4
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -31,6 +32,9 @@ class EditActivity : AppCompatActivity() {
             //вернуть отредактированный экземпляр в главную activity, собрать новый экземпляр. Картинку взять из старого
             override fun onClick(p0: View?) {
                val result = image?.let { Product(it,name.text.toString(),producer.text.toString(),cost.text.toString().toInt()) }
+                val intent = Intent()
+                intent.putExtra(PRODUCT,result)
+                finish()
             }
         })
 

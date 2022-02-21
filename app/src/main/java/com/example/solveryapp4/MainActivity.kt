@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
     }
 
  */
-    override fun onSelect(product: Product) {
+    override fun onSelect(product: Product) {//досстать результат из onActivityResult и заменить текущее значение product
         val editIntent = Intent(this, EditActivity::class.java)
         editIntent.putExtra(PRODUCT, product)
         startActivity(editIntent)
