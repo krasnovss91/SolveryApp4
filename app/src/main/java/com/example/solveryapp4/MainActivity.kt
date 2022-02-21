@@ -33,9 +33,10 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         val addButton = findViewById<Button>(R.id.addProduct)
 
-        val deleteButton = findViewById<Button>(R.id.deleteItemButton)
+       // val deleteButton = findViewById<Button>(R.id.deleteItemButton)
 
         val saveIntent = Intent(this, ProductActivity::class.java)
+
 
         addButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
@@ -43,8 +44,12 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
                 //val arguments = saveIntent.extras
                 val arguments = intent.extras
-                val data = arguments?.get(PRODUCT)
-                productList.add(data as Product)//NPE. Доставать результат через onActivityResult
+                val data = arguments?.getParcelable<Product>(PRODUCT)
+                if (data != null) {
+                    productList.add(data)
+                }
+               // val data = arguments?.get(PRODUCT)
+               // productList.add(data as Product)//NPE. Доставать результат через onActivityResult
 
             }
         })
@@ -61,13 +66,17 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {//переопределить его
         super.onActivityResult(requestCode, resultCode, data)
+
     }
 
 
     override fun onSelect(product: Product) {//досстать результат из onActivityResult и заменить текущее значение product
         val editIntent = Intent(this, EditActivity::class.java)
         editIntent.putExtra(PRODUCT, product)
-        startActivity(editIntent)
+      //  startActivity(editIntent)
+        startActivityForResult(editIntent,1)
+        val arguments = intent.extras
+        //product = arguments?.getParcelable<Product>(PRODUCT)!!
 
     }
 

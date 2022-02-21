@@ -3,6 +3,7 @@ package com.example.solveryapp4
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -14,6 +15,7 @@ interface OnProductSelected{
 
 class ProductAdapter(private val products: List<Product>, private val listener: OnProductSelected) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
+
 
    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -28,6 +30,14 @@ class ProductAdapter(private val products: List<Product>, private val listener: 
             itemView.setOnClickListener {
                 listener.onSelect(product)
             }
+
+            itemView.findViewById<Button>(R.id.deleteItemButton).setOnClickListener(
+                object : View.OnClickListener{
+                    override fun onClick(p0: View?) {
+
+                    }
+                }
+            )
         }
 
     }

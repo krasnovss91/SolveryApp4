@@ -9,6 +9,7 @@ import android.widget.EditText
 
 class ProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product2)
 
@@ -29,4 +30,5 @@ class ProductActivity : AppCompatActivity() {
             }
         })
     }
+
 }
