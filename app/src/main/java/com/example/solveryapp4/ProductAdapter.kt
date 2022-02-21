@@ -53,7 +53,7 @@ class ProductAdapter(private val products: MutableList<Product>, private val lis
             viewHolder.countView.text = count.toString() + " " + product.unit
         }
                  */
-
+/*
             itemView.findViewById<Button>(R.id.deleteItemButton).setOnClickListener(
                 object : View.OnClickListener{
                     override fun onClick(p0: View?) {
@@ -62,7 +62,16 @@ class ProductAdapter(private val products: MutableList<Product>, private val lis
                 }
             )
 
+ */
+            MyViewHolder(itemView).removeButton.setOnClickListener(
+                object : View.OnClickListener{
+                    override fun onClick(p0: View?) {
+                        delete(product,products)
+                    }
+                }
+            )
         }
+       val removeButton = itemView.findViewById<Button>(R.id.deleteItemButton)
 
        fun delete(product: Product, productList: MutableList<Product>){//вызывать при нажатии на кнопку удаления
            productList.remove(product)
