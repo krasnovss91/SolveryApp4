@@ -26,7 +26,7 @@ class ProductActivity : AppCompatActivity() {
                 intent.putExtra(PRODUCT,product)
                 startActivityForResult(intent, 1)
                 //setResult(RESULT_OK, intent)
-                finish()
+              //  finish()
 
             }
         })

@@ -35,7 +35,7 @@ class EditActivity : AppCompatActivity() {
 
                 intent.putExtra(PRODUCT,result)
                 startActivityForResult(intent, 1)
-                finish()
+               // finish()
             }
         })
 

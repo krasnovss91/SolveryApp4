@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
                 startActivity(saveIntent)
                 //val arguments = saveIntent.extras
                 val arguments = intent.extras
-              //  val data = arguments?.getParcelable<Product>(PRODUCT)
-                val data = onActivityResult(1,1,saveIntent)
+               // val data = onActivityResult(1,1,saveIntent)//kotlin.Unit cannot be cast to com.example.solveryapp4.Product
+                val data = arguments?.getParcelable<Product>(PRODUCT)
                 productList.add(data as Product)
                // val data = arguments?.get(PRODUCT)
                // productList.add(data as Product)//NPE. Доставать результат через onActivityResult
@@ -57,18 +57,20 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
     }
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {//переопределить его
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
     }
 
 
-    override fun onSelect(product: Product) {//досстать результат из onActivityResult и заменить текущее значение product
+    override fun onSelect(product: Product) {//достать результат из onActivityResult и заменить текущее значение product
         val editIntent = Intent(this, EditActivity::class.java)
         editIntent.putExtra(PRODUCT, product)
         startActivity(editIntent)
         //startActivityForResult(editIntent,1)
-        val arguments = intent.extras
+        //val arguments = intent.extras
+        val arguments = onActivityResult(1,1,editIntent)
+
         //product = arguments?.getParcelable<Product>(PRODUCT)!!
 
     }
