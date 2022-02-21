@@ -13,7 +13,7 @@ interface OnProductSelected{
     fun onSelect(product: Product)
 }
 
-class ProductAdapter(private val products: List<Product>, private val listener: OnProductSelected) :
+class ProductAdapter(private val products: MutableList<Product>, private val listener: OnProductSelected) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
 
@@ -34,11 +34,16 @@ class ProductAdapter(private val products: List<Product>, private val listener: 
             itemView.findViewById<Button>(R.id.deleteItemButton).setOnClickListener(
                 object : View.OnClickListener{
                     override fun onClick(p0: View?) {
-
+                       delete(product,products)
                     }
                 }
             )
+
         }
+
+       fun delete(product: Product, productList: MutableList<Product>){//вызывать при нажатии на кнопку удаления
+           productList.remove(product)
+       }
 
     }
 

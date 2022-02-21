@@ -29,7 +29,6 @@ class EditActivity : AppCompatActivity() {
         val image = product?.avatar
 
         editButton.setOnClickListener(object : View.OnClickListener {
-            //вернуть отредактированный экземпляр в главную activity, собрать новый экземпляр. Картинку взять из старого
             override fun onClick(p0: View?) {
                val result = image?.let { Product(it,name.text.toString(),producer.text.toString(),cost.text.toString().toInt()) }
                 val intent = Intent()

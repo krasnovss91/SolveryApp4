@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         val addButton = findViewById<Button>(R.id.addProduct)
 
-       // val deleteButton = findViewById<Button>(R.id.deleteItemButton)
 
         val saveIntent = Intent(this, ProductActivity::class.java)
 
@@ -53,13 +52,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
             }
         })
-            /*
-        deleteButton.setOnClickListener(object : View.OnClickListener{//обращаться через ViewHolder
-            override fun onClick(p0: View?) {
 
-            }
-        })
-             */
 
     }
 
@@ -81,7 +74,4 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
     }
 
 
-    fun delete(product: Product, productList: MutableList<Product>){//вызывать при нажатии на кнопку удаления
-        productList.remove(product)
-    }
 }
