@@ -39,8 +39,9 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
         addButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-                startActivityForResult(saveIntent, 1)// сложить результат в список товаров через Request-код
+               // startActivityForResult(saveIntent, 1)// сложить результат в список товаров через Request-код
 
+                startActivity(saveIntent)
                 //val arguments = saveIntent.extras
                 val arguments = intent.extras
                 val data = arguments?.getParcelable<Product>(PRODUCT)
@@ -66,8 +67,8 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
     override fun onSelect(product: Product) {//досстать результат из onActivityResult и заменить текущее значение product
         val editIntent = Intent(this, EditActivity::class.java)
         editIntent.putExtra(PRODUCT, product)
-      //  startActivity(editIntent)
-        startActivityForResult(editIntent,1)
+        startActivity(editIntent)
+        //startActivityForResult(editIntent,1)
         val arguments = intent.extras
         //product = arguments?.getParcelable<Product>(PRODUCT)!!
 
