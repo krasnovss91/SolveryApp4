@@ -44,12 +44,12 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
                 //val arguments = saveIntent.extras
                 val arguments = intent.extras
                 val data = arguments?.get(PRODUCT)
-                productList.add(data as Product)//NPE
+                productList.add(data as Product)//NPE. Доставать результат через onActivityResult
 
             }
         })
             /*
-        deleteButton.setOnClickListener(object : View.OnClickListener{//валится с NPE, если закомментировать, приложение собирается
+        deleteButton.setOnClickListener(object : View.OnClickListener{//обращаться через ViewHolder
             override fun onClick(p0: View?) {
 
             }
@@ -58,12 +58,12 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
 
     }
 
-/*
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {//переопределить его
         super.onActivityResult(requestCode, resultCode, data)
     }
 
- */
+
     override fun onSelect(product: Product) {//досстать результат из onActivityResult и заменить текущее значение product
         val editIntent = Intent(this, EditActivity::class.java)
         editIntent.putExtra(PRODUCT, product)
