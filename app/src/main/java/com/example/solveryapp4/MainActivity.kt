@@ -12,7 +12,7 @@ import com.example.solveryapp4.databinding.ActivityMainBinding
 
 const val PRODUCT = "KEY_PRODUCT"
 
-class MainActivity : AppCompatActivity(), OnProductSelected {
+class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,9 +57,12 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
     }
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {//похожее в myApplication113
         super.onActivityResult(requestCode, resultCode, data)
-
+        if (data == null){
+            return
+        }
+    val result = data.getParcelableExtra<Product>(PRODUCT)
     }
 
 
@@ -72,6 +75,10 @@ class MainActivity : AppCompatActivity(), OnProductSelected {
         val arguments = onActivityResult(1,1,editIntent)
 
         //product = arguments?.getParcelable<Product>(PRODUCT)!!
+
+    }
+
+    override fun onDelete(product: Product, products: MutableList<Product>) {//переопределить его
 
     }
 
