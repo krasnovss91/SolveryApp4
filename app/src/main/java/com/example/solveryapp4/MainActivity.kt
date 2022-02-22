@@ -85,8 +85,9 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
     }
 
-    override fun onDelete(product: Product) {
-        TODO("Not yet implemented")
+    override fun onDelete(product: Product) {//удалить элемент с последующим обновлением списка
+
+
     }
 
 
