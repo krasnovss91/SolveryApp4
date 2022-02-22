@@ -18,11 +18,16 @@ interface OnProductDeleted{
     fun onDelete(product: Product)
 }
 
-class ProductAdapter(private val products: MutableList<Product>, private val listener: OnProductSelected,
+class ProductAdapter( private val listener: OnProductSelected,
 private val deleteListener: OnProductDeleted) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
+   private var products = emptyList<Product>()
 
+    fun setProducts(products: List<Product>){
+        this.products = products
+        notifyDataSetChanged()
+    }
 
    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

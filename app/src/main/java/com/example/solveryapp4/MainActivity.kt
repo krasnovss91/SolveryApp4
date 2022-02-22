@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ProductAdapter(productList, this, this)
+        recyclerView.adapter = ProductAdapter( this, this)
 
         val addButton = findViewById<Button>(R.id.addProduct)
 
