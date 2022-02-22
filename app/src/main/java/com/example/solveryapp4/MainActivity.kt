@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val productList = mutableListOf(
             Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18),
             Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9),
@@ -27,9 +28,11 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
             Product(R.drawable.ic_launcher_background, "Макароны", "Тольяттинский хлебозавод", 15)
         )
 
+
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ProductAdapter( this, this)
+        recyclerView.adapter = ProductAdapter( this, this, productList)
+
 
         val addButton = findViewById<Button>(R.id.addProduct)
 
