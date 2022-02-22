@@ -1,6 +1,7 @@
 package com.example.solveryapp4
 
 import android.view.LayoutInflater
+import android.view.OnReceiveContentListener
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -14,11 +15,13 @@ interface OnProductSelected{
 }
 
 interface OnProductDeleted{
-    fun onDelete(product: Product, products: MutableList<Product>)
+    fun onDelete(product: Product)
 }
 
-class ProductAdapter(private val products: MutableList<Product>, private val listener: OnProductSelected) :
+class ProductAdapter(private val products: MutableList<Product>, private val listener: OnProductSelected,
+private val deleteListener: OnProductDeleted) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
+
 
 
    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -35,6 +38,9 @@ class ProductAdapter(private val products: MutableList<Product>, private val lis
                 listener.onSelect(product)
             }
 
+            itemView.findViewById<View>(R.id.deleteItemButton).setOnClickListener{
+                deleteListener.onDelete(product)
+            }
 
         }
 

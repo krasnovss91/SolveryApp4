@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ProductAdapter(productList, this)
+        recyclerView.adapter = ProductAdapter(productList, this, this)
 
         val addButton = findViewById<Button>(R.id.addProduct)
 
@@ -39,16 +39,16 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
         addButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-               // startActivityForResult(saveIntent, 1)// сложить результат в список товаров через Request-код
+                // startActivityForResult(saveIntent, 1)// сложить результат в список товаров через Request-код
 
                 startActivity(saveIntent)
                 //val arguments = saveIntent.extras
                 val arguments = intent.extras
-               // val data = onActivityResult(1,1,saveIntent)//kotlin.Unit cannot be cast to com.example.solveryapp4.Product
+                // val data = onActivityResult(1,1,saveIntent)//kotlin.Unit cannot be cast to com.example.solveryapp4.Product
                 val data = arguments?.getParcelable<Product>(PRODUCT)
                 productList.add(data as Product)
-               // val data = arguments?.get(PRODUCT)
-               // productList.add(data as Product)//NPE. Доставать результат через onActivityResult
+                // val data = arguments?.get(PRODUCT)
+                // productList.add(data as Product)//NPE. Доставать результат через onActivityResult
 
             }
         })
@@ -57,12 +57,16 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
     }
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {//похожее в myApplication113
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {//похожее в myApplication113
         super.onActivityResult(requestCode, resultCode, data)
-        if (data == null){
+        if (data == null) {
             return
         }
-    val result = data.getParcelableExtra<Product>(PRODUCT)
+        val result = data.getParcelableExtra<Product>(PRODUCT)
     }
 
 
@@ -72,20 +76,14 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
         startActivity(editIntent)
         //startActivityForResult(editIntent,1)
         //val arguments = intent.extras
-        val arguments = onActivityResult(1,1,editIntent)
+        val arguments = onActivityResult(1, 1, editIntent)
 
         //product = arguments?.getParcelable<Product>(PRODUCT)!!
 
     }
 
-    override fun onDelete(product: Product, products: MutableList<Product>) {
-        val removeButton = findViewById<Button>(R.id.deleteItemButton)
-        removeButton.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(p0: View?) {
-                products.remove(product)
-            }
-        })
-
+    override fun onDelete(product: Product) {
+        TODO("Not yet implemented")
     }
 
 
