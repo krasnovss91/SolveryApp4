@@ -78,7 +78,13 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
     }
 
-    override fun onDelete(product: Product, products: MutableList<Product>) {//переопределить его
+    override fun onDelete(product: Product, products: MutableList<Product>) {
+        val removeButton = findViewById<Button>(R.id.deleteItemButton)
+        removeButton.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(p0: View?) {
+                products.remove(product)
+            }
+        })
 
     }
 

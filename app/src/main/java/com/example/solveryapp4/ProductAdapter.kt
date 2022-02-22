@@ -35,54 +35,10 @@ class ProductAdapter(private val products: MutableList<Product>, private val lis
                 listener.onSelect(product)
             }
 
-                /*
-                    private inner class ViewHolder internal constructor(view: View) {
-        val addButton: Button
-        val removeButton: Button
-        val nameView: TextView
-        val countView: TextView
 
-        init {
-            addButton = view.findViewById(R.id.addButton)
-            removeButton = view.findViewById(R.id.removeButton)
-            nameView = view.findViewById(R.id.nameView)
-            countView = view.findViewById(R.id.countView)
         }
-    }
-
-            viewHolder.removeButton.setOnClickListener {
-            var count = product.count - 1
-            if (count < 0) count = 0
-            product.setCount(count)
-            viewHolder.countView.text = count.toString() + " " + product.unit
-        }
-                 */
-/*
-            itemView.findViewById<Button>(R.id.deleteItemButton).setOnClickListener(
-                object : View.OnClickListener{
-                    override fun onClick(p0: View?) {
-                       delete(product,products)
-                    }
-                }
-            )
-
- */
-            MyViewHolder(itemView).removeButton.setOnClickListener(
-                object : View.OnClickListener{
-                    override fun onClick(p0: View?) {
-                       // delete(product,products)
-                    }
-                }
-            )
-        }
-       val removeButton = itemView.findViewById<Button>(R.id.deleteItemButton)
-           /*
-       fun delete(product: Product, productList: MutableList<Product>){//вызывать при нажатии на кнопку удаления
-           productList.remove(product)
-       }
 
 
-            */
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
