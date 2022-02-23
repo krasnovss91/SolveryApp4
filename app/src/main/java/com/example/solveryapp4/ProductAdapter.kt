@@ -10,29 +10,30 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
-interface OnProductSelected{
+interface OnProductSelected {
     fun onSelect(product: Product)
 }
 
-interface OnProductDeleted{
+interface OnProductDeleted {
     fun onDelete(product: Product)
 }
 
-class ProductAdapter( private val listener: OnProductSelected,
-private val deleteListener: OnProductDeleted, val products: MutableList<Product>) :
+class ProductAdapter(
+    private val listener: OnProductSelected,
+    private val deleteListener: OnProductDeleted
+) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
-    /*
-   private var products = emptyList<Product>()
 
-    fun setProducts(products: List<Product>){
+    private var products = emptyList<Product>()
+
+    fun setProducts(products: List<Product>) {
         this.products = products
         notifyDataSetChanged()
     }
 
-     */
 
-   inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun setData(product: Product) {
             itemView.findViewById<TextView>(R.id.name).text = product.name
@@ -46,7 +47,7 @@ private val deleteListener: OnProductDeleted, val products: MutableList<Product>
                 listener.onSelect(product)
             }
 
-            itemView.findViewById<View>(R.id.deleteItemButton).setOnClickListener{
+            itemView.findViewById<View>(R.id.deleteItemButton).setOnClickListener {
                 deleteListener.onDelete(product)
             }
 

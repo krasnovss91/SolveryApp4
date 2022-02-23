@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
         val recyclerView: RecyclerView = findViewById(R.id.productList)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ProductAdapter( this, this, productList)
+        recyclerView.adapter = ProductAdapter( this, this)
 
 
         val addButton = findViewById<Button>(R.id.addProduct)
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
         requestCode: Int,
         resultCode: Int,
         data: Intent?
-    ) {//похожее в myApplication113
+    ) {
         super.onActivityResult(requestCode, resultCode, data)
         if (data == null) {
             return
