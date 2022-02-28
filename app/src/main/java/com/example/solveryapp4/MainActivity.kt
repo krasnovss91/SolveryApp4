@@ -53,24 +53,9 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
         val saveIntent = Intent(this, ProductActivity::class.java)
 
-
-        addButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(p0: View?) {
-                // startActivityForResult(saveIntent, 1)// сложить результат в список товаров через Request-код
-
-                startActivity(saveIntent)
-                //val arguments = saveIntent.extras
-                val arguments = intent.extras
-                // val data = onActivityResult(1,1,saveIntent)//kotlin.Unit cannot be cast to com.example.solveryapp4.Product
-                val data = arguments?.getParcelable<Product>(PRODUCT)
-                productList.add(data as Product)
-                // val data = arguments?.get(PRODUCT)
-                // productList.add(data as Product)//NPE. Доставать результат через onActivityResult
-
-            }
-        })
-
-
+        addButton.setOnClickListener {
+            startActivityForResult(saveIntent, REQUEST_CODE_ADD)
+        }
     }
 
 
