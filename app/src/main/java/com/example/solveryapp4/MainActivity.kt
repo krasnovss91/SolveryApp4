@@ -72,17 +72,12 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
     }
 
 
-    override fun onSelect(product: Product) {//достать результат из onActivityResult и заменить текущее значение product
+    override fun onSelect(product: Product) {
         val editIntent = Intent(this, EditActivity::class.java)
         editIntent.putExtra(PRODUCT, product)
-        startActivity(editIntent)
-        //startActivityForResult(editIntent,1)
-        //val arguments = intent.extras
-        val arguments = onActivityResult(1, 1, editIntent)
-
-        //product = arguments?.getParcelable<Product>(PRODUCT)!!
-
+        startActivityForResult(editIntent, REQUEST_CODE_EDIT)
     }
+
 
     override fun onDelete(product: Product) {
       productList.remove(product)

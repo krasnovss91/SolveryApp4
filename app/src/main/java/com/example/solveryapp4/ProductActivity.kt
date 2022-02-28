@@ -18,18 +18,22 @@ class ProductActivity : AppCompatActivity() {
         val cost = findViewById(R.id.costEdit) as EditText
 
         val saveProduct = findViewById<Button>(R.id.saveProduct)
-        val intent = Intent(this, MainActivity::class.java)
 
-        saveProduct.setOnClickListener(object: View.OnClickListener{
-            override fun onClick(p0: View?) {
-                val product = Product(R.drawable.ic_launcher_background, name.text.toString(), producer.text.toString(), cost.text.toString().toInt())
-                intent.putExtra(PRODUCT,product)
-                startActivityForResult(intent, 1)
-                //setResult(RESULT_OK, intent)
-              //  finish()
+        saveProduct.setOnClickListener {
+            val product = Product(
+                R.drawable.ic_launcher_background,
+                name.text.toString(),
+                producer.text.toString(),
+                cost.text.toString().toInt(),
+                Generator.generateId()
+            )
+            val intent = Intent()
 
-            }
-        })
+            intent.putExtra(PRODUCT, product)
+            setResult(RESULT_OK,intent)
+            finish()
+        }
+
     }
 
 }
