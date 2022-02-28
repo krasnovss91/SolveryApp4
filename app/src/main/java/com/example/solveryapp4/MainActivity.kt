@@ -14,24 +14,26 @@ const val PRODUCT = "KEY_PRODUCT"
 
 class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
+    private val adapter = ProductAdapter(this, this)
+
+    val productList = mutableListOf(
+        Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18),
+        Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9),
+        Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22),
+        Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20),
+        Product(R.drawable.ic_launcher_background, "Макароны", "Тольяттинский хлебозавод", 15)
+    )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        val productList = mutableListOf(
-            Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18),
-            Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9),
-            Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22),
-            Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20),
-            Product(R.drawable.ic_launcher_background, "Макароны", "Тольяттинский хлебозавод", 15)
-        )
-
-
-        val recyclerView: RecyclerView = findViewById(R.id.productList)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ProductAdapter( this, this)
+        findViewById<RecyclerView>(R.id.productList).apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = this@MainActivity.adapter
+            this@MainActivity.adapter.setProducts(productList)
+        }
 
 
         val addButton = findViewById<Button>(R.id.addProduct)
@@ -85,9 +87,9 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
     }
 
-    override fun onDelete(product: Product) {//удалить элемент с последующим обновлением списка
-
-
+    override fun onDelete(product: Product) {
+      productList.remove(product)
+      adapter.setProducts(productList)
     }
 
 
