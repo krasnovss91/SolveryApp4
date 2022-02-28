@@ -61,6 +61,6 @@
         tools:layout_editor_absoluteX="291dp"
         tools:layout_editor_absoluteY="61dp"
         tools:ignore="MissingConstraints" />
-    <!--сюда кнопку удалить -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
