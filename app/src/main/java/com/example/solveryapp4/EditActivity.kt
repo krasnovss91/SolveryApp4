@@ -31,7 +31,7 @@ class EditActivity : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
 
         editButton.setOnClickListener {
-            val result =image?.let {
+            val result = image?.let {
                 Product(
                     it,
                     name.text.toString(),

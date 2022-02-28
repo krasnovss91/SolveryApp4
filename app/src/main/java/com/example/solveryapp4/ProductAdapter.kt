@@ -24,12 +24,21 @@ class ProductAdapter(
 ) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
-
     private var products = emptyList<Product>()
 
     fun setProducts(products: List<Product>) {
         this.products = products
         notifyDataSetChanged()
+    }
+
+    fun itemUpdated(position: Int, products: List<Product>){
+        this.products = products
+        notifyItemChanged(position)
+    }
+
+    fun itemDeleted(position: Int, products: List<Product>){
+        this.products = products
+        notifyItemChanged(position)
     }
 
 
