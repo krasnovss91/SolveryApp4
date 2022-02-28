@@ -67,16 +67,18 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
         super.onActivityResult(requestCode, resultCode, data)
         if (data == null) {
             return
-
+        }
             when(requestCode){
                 REQUEST_CODE_ADD -> {
-
+                    val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
+                    productList.add(product)
+                    adapter.setProducts(productList)
                 }
                 REQUEST_CODE_EDIT -> {
 
                 }
             }
-        }
+
     }
 
 
