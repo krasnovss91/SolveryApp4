@@ -8,20 +8,32 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.solveryapp4.Generator.generateId
 import com.example.solveryapp4.databinding.ActivityMainBinding
 
 const val PRODUCT = "KEY_PRODUCT"
+const val REQUEST_CODE_ADD = 101
+const val REQUEST_CODE_EDIT = 102
+
+object Generator {
+    private var id: Int = 0
+
+    fun generateId():Int{
+        id += 1
+        return id
+    }
+}
 
 class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
     private val adapter = ProductAdapter(this, this)
 
     val productList = mutableListOf(
-        Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18),
-        Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9),
-        Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22),
-        Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20),
-        Product(R.drawable.ic_launcher_background, "Макароны", "Тольяттинский хлебозавод", 15)
+        Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18,generateId()),
+        Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9, generateId()),
+        Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22, generateId()),
+        Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20, generateId()),
+        Product(R.drawable.ic_launcher_background, "Макароны", "Тольяттинский хлебозавод", 15, generateId())
     )
 
 

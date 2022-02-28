@@ -32,8 +32,17 @@ class EditActivity : AppCompatActivity() {
 
         editButton.setOnClickListener {
             val result = image.let {
-
+               Product(
+                   it,
+                   name.text.toString(),
+                   producer.text.toString(),
+                   cost.text.toString().toInt(),
+                   product.id
+               )
             }
+            intent.putExtra(PRODUCT, result)
+            setResult(RESULT_OK, intent)
+            finish()
         }
 
     }
