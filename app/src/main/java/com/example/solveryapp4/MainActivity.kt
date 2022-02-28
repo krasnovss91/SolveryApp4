@@ -18,7 +18,7 @@ const val REQUEST_CODE_EDIT = 102
 object Generator {
     private var id: Int = 0
 
-    fun generateId():Int{
+    fun generateId(): Int {
         id += 1
         return id
     }
@@ -29,11 +29,17 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
     private val adapter = ProductAdapter(this, this)
 
     val productList = mutableListOf(
-        Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18,generateId()),
+        Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18, generateId()),
         Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9, generateId()),
         Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22, generateId()),
         Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20, generateId()),
-        Product(R.drawable.ic_launcher_background, "Макароны", "Тольяттинский хлебозавод", 15, generateId())
+        Product(
+            R.drawable.ic_launcher_background,
+            "Макароны",
+            "Тольяттинский хлебозавод",
+            15,
+            generateId()
+        )
     )
 
 
@@ -68,23 +74,22 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
         if (data == null) {
             return
         }
-            when(requestCode){
-                REQUEST_CODE_ADD -> {
-                    val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
-                    productList.add(product)
-                    adapter.setProducts(productList)
-                }
-                REQUEST_CODE_EDIT -> {
-                    val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
-                    val oldProduct = productList.find { it.id == product.id } ?: return
-                    val position = productList.indexOf(oldProduct)
-                    productList[position] = product
-                    adapter.setProducts(productList)
-                }
+        when (requestCode) {
+            REQUEST_CODE_ADD -> {
+                val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
+                productList.add(product)
+                adapter.setProducts(productList)
             }
+            REQUEST_CODE_EDIT -> {
+                val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
+                val oldProduct = productList.find { it.id == product.id } ?: return
+                val position = productList.indexOf(oldProduct)
+                productList[position] = product
+                adapter.setProducts(productList)
+            }
+        }
 
     }
-
 
 
     override fun onSelect(product: Product) {
@@ -95,8 +100,8 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
 
     override fun onDelete(product: Product) {
-      productList.remove(product)
-      adapter.setProducts(productList)
+        productList.remove(product)
+        adapter.setProducts(productList)
     }
 
 

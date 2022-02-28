@@ -13,9 +13,9 @@ class ProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product2)
 
-        val name = findViewById(R.id.nameEdit) as EditText
-        val producer = findViewById(R.id.producerEdit) as EditText
-        val cost = findViewById(R.id.costEdit) as EditText
+        val name = findViewById<EditText>(R.id.nameEdit)
+        val producer = findViewById<EditText>(R.id.producerEdit)
+        val cost = findViewById<EditText>(R.id.costEdit)
 
         val saveProduct = findViewById<Button>(R.id.saveProduct)
 
@@ -30,7 +30,7 @@ class ProductActivity : AppCompatActivity() {
             val intent = Intent()
 
             intent.putExtra(PRODUCT, product)
-            setResult(RESULT_OK,intent)
+            setResult(RESULT_OK, intent)
             finish()
         }
 

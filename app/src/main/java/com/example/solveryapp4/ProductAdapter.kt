@@ -31,12 +31,12 @@ class ProductAdapter(
         notifyDataSetChanged()
     }
 
-    fun itemUpdated(position: Int, products: List<Product>){
+    fun itemUpdated(position: Int, products: List<Product>) {
         this.products = products
         notifyItemChanged(position)
     }
 
-    fun itemDeleted(position: Int, products: List<Product>){
+    fun itemDeleted(position: Int, products: List<Product>) {
         this.products = products
         notifyItemChanged(position)
     }
