@@ -75,7 +75,11 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
                     adapter.setProducts(productList)
                 }
                 REQUEST_CODE_EDIT -> {
-
+                    val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
+                    val oldProduct = productList.find { it.id == product.id } ?: return
+                    val position = productList.indexOf(oldProduct)
+                    productList[position] = product
+                    adapter.setProducts(productList)
                 }
             }
 
